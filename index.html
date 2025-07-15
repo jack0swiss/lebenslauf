@@ -91,20 +91,6 @@
         
         .content {
             padding: 40px;
-            display: flex;
-            gap: 30px;
-        }
-        
-        .left-column {
-            flex: 2;
-        }
-        
-        .right-column {
-            flex: 1;
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 10px;
-            height: fit-content;
         }
         
         .section {
@@ -252,13 +238,13 @@
         
         .skills-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
         
         .skill-category {
-            background: white;
-            padding: 20px;
+            background: #f8f9fa;
+            padding: 25px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
         }
@@ -290,60 +276,6 @@
             left: 0;
         }
         
-        .language-item {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        
-        .language-name {
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-        
-        .language-level {
-            color: #7f8c8d;
-        }
-        
-        .courses-item {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        
-        .course-title {
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-        
-        .course-year {
-            color: #7f8c8d;
-        }
-        
-        .footer-section {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        
-        .footer-title {
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-        
-        .footer-content {
-            color: #555;
-        }
-        
         .highlight {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             color: white;
@@ -351,6 +283,42 @@
             border-radius: 10px;
             margin: 20px 0;
             text-align: center;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .attachments {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .attachments h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .attachments ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .attachments li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .attachments li::before {
+            content: '📄';
+            position: absolute;
+            left: 0;
         }
         
         @media print {
@@ -366,14 +334,11 @@
             
             .job:hover, .portfolio-item:hover, .education-item:hover {
                 transform: none;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             }
         }
         
         @media (max-width: 768px) {
-            .content {
-                flex-direction: column;
-            }
-            
             .contact-info {
                 flex-direction: column;
                 align-items: center;
@@ -386,6 +351,10 @@
             .period {
                 margin-top: 10px;
                 align-self: flex-start;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -412,407 +381,213 @@
         </div>
 
         <div class="content">
-            <div class="left-column">
-                <div class="highlight">
-                    <h3>🎯 BERUFSZIEL</h3>
-                    <p>Systemadministrator im IT-Bereich mit Fokus auf IT-Services, Systembetreuung und -überwachung</p>
-                </div>
-
-                <div class="section">
-                    <h2 class="section-title">💼 EXPERIENCE</h2>
-                    
-                    <div class="job">
-                        <div class="job-header">
-                            <div>
-                                <div class="job-title">Koch</div>
-                                <div class="company">Reha Rheinfelden</div>
-                            </div>
-                            <div class="period">01.2021 – heute</div>
-                        </div>
-                        <div class="job-description">Zubereitung von Mahlzeiten für Patienten und Personal – Einhaltung von Hygienevorschriften und Diätplänen – Teamarbeit in der Grosskuche – Verantwortung für Qualität und Termintreue</div>
-                    </div>
-
-                    <div class="job">
-                        <div class="job-header">
-                            <div>
-                                <div class="job-title">Chef de Partie / Tournant</div>
-                                <div class="company">Parkhotel am Rhein, Rheinfelden</div>
-                            </div>
-                            <div class="period">10.2020 – 12.2020</div>
-                        </div>
-                        <div class="job-description">Leitung verschiedener Küchenbereiche – Koordination von Arbeitsabläufen – Qualitätskontrolle und Teamführung</div>
-                    </div>
-
-                    <div class="job">
-                        <div class="job-header">
-                            <div>
-                                <div class="job-title">Koch / Küchen Verantwortlicher</div>
-                                <div class="company">Zaraz Partyservice & Catering, Rheinfelden</div>
-                            </div>
-                            <div class="period">06.2015 – 08.2020</div>
-                        </div>
-                        <div class="job-description">Küchenleitung und Personalführung – Event-Catering und Partyservice – Menüplanung und Kostenkontrolle</div>
-                    </div>
-
-                    <div class="job">
-                        <div class="job-header">
-                            <div>
-                                <div class="job-title">Koch / Bäcker / Verkauf</div>
-                                <div class="company">Manor AG, Basel St.Jakob</div>
-                            </div>
-                            <div class="period">09.2013 – 05.2015</div>
-                        </div>
-                        <div class="job-description">Vielseitige Tätigkeiten in Küche und Verkauf – Kundenbetreuung und Verkaufstätigkeit</div>
-                    </div>
-
-                    <div class="job">
-                        <div class="job-header">
-                            <div>
-                                <div class="job-title">Chef de Partie / Tournant</div>
-                                <div class="company">Park-Hotel am Rhein, Rheinfelden</div>
-                            </div>
-                            <div class="period">02.2009 – 08.2013</div>
-                        </div>
-                        <div class="job-description">Leitung verschiedener Küchenbereiche – Qualitätsmanagement und Teamarbeit – Gehobene Gastronomie</div>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h2 class="section-title">🎓 EDUCATION</h2>
-                    
-                    <div class="education-item">
-                        <div class="education-date">05.2025</div>
-                        <div class="education-title">IT-Services betreiben, warten und überwachen</div>
-                        <div class="education-institution">Klubschule Migros Pro - Systemadministration und IT-Service Management</div>
-                    </div>
-
-                    <div class="education-item">
-                        <div class="education-date">2024/2025</div>
-                        <div class="education-title">KI & Moderne Entwicklungstools</div>
-                        <div class="education-institution">ChatGPT, Claude, GitHub Copilot - Vercel, Lovable, Bolt.new</div>
-                    </div>
-
-                    <div class="education-item">
-                        <div class="education-date">08.2004 – 08.2006</div>
-                        <div class="education-title">Lehre als Koch EFZ</div>
-                        <div class="education-institution">Gasthaus Pöstli (1 Michelin Stern) & Hotel Engel, Frick</div>
-                    </div>
-
-                    <div class="education-item">
-                        <div class="education-date">07.1999 – 08.2001</div>
-                        <div class="education-title">Diplommittelschule</div>
-                        <div class="education-institution">Muttenz</div>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h2 class="section-title">🚀 PORTFOLIO PROJEKTE</h2>
-                    
-                    <div class="portfolio-item">
-                        <h4>FitWell Connect Hub</h4>
-                        <div class="project-type">Web-Anwendung für Fitness und Wellness</div>
-                        <a href="https://fitwell-connect-hub.lovable.app/" target="_blank" class="portfolio-link">🔗 Live Demo ansehen</a>
-                    </div>
-
-                    <div class="portfolio-item">
-                        <h4>KI-Vortrag Platform</h4>
-                        <div class="project-type">Interaktive Präsentationsplattform</div>
-                        <a href="https://ki-vortrag-2-4-26.lovable.app/" target="_blank" class="portfolio-link">🔗 Live Demo ansehen</a>
-                    </div>
-
-                    <div class="portfolio-item">
-                        <h4>Bolt.new Web-Anwendung</h4>
-                        <div class="project-type">Moderne Web-App entwickelt mit Bolt.new</div>
-                        <a href="https://effulgent-florentine-0edd1f.netlify.app/" target="_blank" class="portfolio-link">🔗 Live Demo ansehen</a>
-                    </div>
-
-                    <div class="portfolio-item">
-                        <h4>Netlify Web-Project</h4>
-                        <div class="project-type">Full-Stack Webanwendung mit modernen Technologien</div>
-                        <a href="https://monumental-puffpuff-2d2231.netlify.app/" target="_blank" class="portfolio-link">🔗 Live Demo ansehen</a>
-                    </div>
-
-                    <div class="portfolio-item">
-                        <h4>GitHub Projects</h4>
-                        <div class="project-type">Aktive Open-Source Beiträge und Entwicklungsprojekte</div>
-                    </div>
-                </div>
+            <div class="highlight">
+                <h3>🎯 BERUFSZIEL</h3>
+                <p>Systemadministrator im IT-Bereich mit Fokus auf IT-Services, Systembetreuung und -überwachung</p>
             </div>
 
-            <div class="right-column">
-                <div class="section">
-                    <h2 class="section-title">💡 COMPUTER SKILLS</h2>
-                    
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h4>🖥️ IT-Kenntnisse</h4>
-                            <ul>
-                                <li>Systemadministration und IT-Service Management</li>
-                                <li>Systemüberwachung und Performance-Optimierung</li>
-                                <li>KI-Tools: ChatGPT, Claude, GitHub Copilot</li>
-                                <li>Low-Code/No-Code: Vercel, Lovable, Bolt.new</li>
-                                <li>Version Control: Git, GitHub</li>
-                                <li>Betriebssysteme: Windows, Linux Grundlagen</li>
-                                <li>Netzwerk- und Hardware-Installation</li>
-                            </ul>
+            <div class="section">
+                <h2 class="section-title">💼 Berufserfahrung</h2>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Koch</div>
+                            <div class="company">Reha Rheinfelden</div>
                         </div>
+                        <div class="period">01.2021 –</div>
                     </div>
-                </div>
-
-                <div class="section">
-                    <h2 class="section-title">🌍 LANGUAGES</h2>
-                    
-                    <div class="language-item">
-                        <div class="language-name">Deutsch</div>
-                        <div class="language-level">Muttersprache</div>
-                    </div>
-                    
-                    <div class="language-item">
-                        <div class="language-name">Englisch</div>
-                        <div class="language-level">Grundkenntnisse</div>
-                    </div>
-                    
-                    <div class="language-item">
-                        <div class="language-name">Französisch</div>
-                        <div class="language-level">Grundkenntnisse</div>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h2 class="section-title">📚 COURSES</h2>
-                    
-                    <div class="courses-item">
-                        <div class="course-title">IT-Services Management</div>
-                        <div class="course-year">Klubschule Migros Pro, 2025</div>
-                    </div>
-                    
-                    <div class="courses-item">
-                        <div class="course-title">KI-Tools Weiterbildung</div>
-                        <div class="course-year">Online-Kurse, 2024-2025</div>
-                    </div>
-                    
-                    <div class="courses-item">
-                        <div class="course-title">Berufsbildnerkurs</div>
-                        <div class="course-year">2018</div>
-                    </div>
-                </div>
-
-                <div class="footer-section">
-                    <div class="footer-title">🎪 LEISURE ACTIVITIES</div>
-                    <div class="footer-content">
-                        Wandern<br>
-                        Technologie und Innovation<br>
-                        Open-Source Projekte
-                    </div>
-                </div>
-
-                <div class="footer-section">
-                    <div class="footer-title">📋 REFERENCES</div>
-                    <div class="footer-content">auf Anfrage</div>
-                </div>
-
-                <div class="footer-section">
-                    <div class="footer-title">⏰ NOTICE PERIOD</div>
-                    <div class="footer-content">2 Monate</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html> TODAY</div>
-                    </div>
-                    <div class="job-description">– Zubereitung von Mahlzeiten für Patienten und Personal – Einhaltung von Hygienevorschriften und Diätplänen – Teamarbeit in der Grosskuche – Verantwortung für Qualität und Termintreue</div>
+                    <div class="job-description">Zubereitung von Mahlzeiten für Patienten und Personal – Einhaltung von Hygienevorschriften und Diätplänen – Teamarbeit in der Grosskuche – Verantwortung für Qualität und Termintreue</div>
                 </div>
 
                 <div class="job">
                     <div class="job-header">
-                        <div class="job-title">➢ CHEF DE PARTIE / TOURNANT</div>
-                        <div class="company">PARKHOTEL AM RHEIN, RHEINFELDEN</div>
+                        <div>
+                            <div class="job-title">Chef de Partie / Tournant</div>
+                            <div class="company">Parkhotel am Rhein, Rheinfelden</div>
+                        </div>
                         <div class="period">10.2020 – 12.2020</div>
                     </div>
-                    <div class="job-description">– Leitung verschiedener Küchenbereiche – Koordination von Arbeitsabläufen – Qualitätskontrolle und Teamführung</div>
+                    <div class="job-description">Leitung verschiedener Küchenbereiche – Koordination von Arbeitsabläufen – Qualitätskontrolle und Teamführung</div>
                 </div>
 
                 <div class="job">
                     <div class="job-header">
-                        <div class="job-title">➢ KOCH / KÜCHEN VERANTWORTLICHER</div>
-                        <div class="company">ZARAZ PARTYSERVICE & CATERING, RHEINFELDEN</div>
+                        <div>
+                            <div class="job-title">Koch / Küchen Verantwortlicher</div>
+                            <div class="company">Zaraz Partyservice & Catering, Rheinfelden</div>
+                        </div>
                         <div class="period">06.2015 – 08.2020</div>
                     </div>
-                    <div class="job-description">– Küchenleitung und Personalführung – Event-Catering und Partyservice – Menüplanung und Kostenkontrolle</div>
+                    <div class="job-description">Küchenleitung und Personalführung – Event-Catering und Partyservice – Menüplanung und Kostenkontrolle</div>
                 </div>
 
                 <div class="job">
                     <div class="job-header">
-                        <div class="job-title">➢ KOCH / BÄCKER / VERKAUF</div>
-                        <div class="company">MANOR AG, BASEL ST.JAKOB</div>
+                        <div>
+                            <div class="job-title">Koch / Bäcker / Verkauf</div>
+                            <div class="company">Manor AG, Basel St.Jakob</div>
+                        </div>
                         <div class="period">09.2013 – 05.2015</div>
                     </div>
-                    <div class="job-description">– Vielseitige Tätigkeiten in Küche und Verkauf – Kundenbetreuung und Verkaufstätigkeit</div>
+                    <div class="job-description">Vielseitige Tätigkeiten in Küche und Verkauf – Kundenbetreuung und Verkaufstätigkeit</div>
                 </div>
 
                 <div class="job">
                     <div class="job-header">
-                        <div class="job-title">➢ CHEF DE PARTIE / TOURNANT</div>
-                        <div class="company">PARK-HOTEL AM RHEIN, RHEINFELDEN</div>
+                        <div>
+                            <div class="job-title">Chef de Partie / Tournant</div>
+                            <div class="company">Park-Hotel am Rhein, Rheinfelden</div>
+                        </div>
                         <div class="period">02.2009 – 08.2013</div>
                     </div>
-                    <div class="job-description">– Leitung verschiedener Küchenbereiche – Qualitätsmanagement und Teamarbeit – Gehobene Gastronomie</div>
+                    <div class="job-description">Leitung verschiedener Küchenbereiche – Qualitätsmanagement und Teamarbeit – Gehobene Gastronomie</div>
                 </div>
             </div>
 
             <div class="section">
-                <h2 class="section-title">EDUCATION</h2>
+                <h2 class="section-title">🎓 Ausbildung & Weiterbildung</h2>
                 
                 <div class="education-item">
-                    <div class="education-date">05.2025</div>
-                    <div class="education-title">IT-SERVICES BETREIBEN, WARTEN UND ÜBERWACHEN</div>
-                    <div class="education-institution">Klubschule Migros Pro - Systemadministration und IT-Service Management</div>
+                    <div class="education-date">14.05.2025</div>
+                    <div class="education-title">IT-Services betreiben, warten und überwachen</div>
+                    <div class="education-institution">Klubschule Migros Pro (erfolgreich abgeschlossen)</div>
                 </div>
 
                 <div class="education-item">
                     <div class="education-date">2024/2025</div>
-                    <div class="education-title">KI & MODERNE ENTWICKLUNGSTOOLS</div>
+                    <div class="education-title">Künstliche Intelligenz & Moderne Entwicklungstools</div>
                     <div class="education-institution">ChatGPT, Claude, GitHub Copilot - Vercel, Lovable, Bolt.new</div>
                 </div>
 
                 <div class="education-item">
                     <div class="education-date">08.2004 – 08.2006</div>
-                    <div class="education-title">LEHRE ALS KOCH EFZ</div>
+                    <div class="education-title">Lehre als Koch EFZ</div>
                     <div class="education-institution">Gasthaus Pöstli (1 Michelin Stern) & Hotel Engel, Frick</div>
                 </div>
 
                 <div class="education-item">
                     <div class="education-date">07.1999 – 08.2001</div>
-                    <div class="education-title">DIPLOMMITTELSCHULE</div>
+                    <div class="education-title">Diplommittelschule</div>
                     <div class="education-institution">Muttenz</div>
                 </div>
             </div>
 
             <div class="section">
-                <h2 class="section-title">PORTFOLIO PROJEKTE</h2>
+                <h2 class="section-title">🚀 Portfolio & Projekte</h2>
                 
                 <div class="portfolio-item">
-                    <div class="portfolio-title">FitWell Connect Hub</div>
-                    <div class="portfolio-description">Web-Anwendung für Fitness und Wellness</div>
-                    <div class="portfolio-link">https://fitwell-connect-hub.lovable.app/</div>
+                    <h4>FitWell Connect Hub</h4>
+                    <div class="project-type">Web-Anwendung für Fitness und Wellness</div>
+                    <a href="https://fitwell-connect-hub.lovable.app/" target="_blank" class="portfolio-link">🔗 Live Demo ansehen</a>
                 </div>
 
                 <div class="portfolio-item">
-                    <div class="portfolio-title">KI-Vortrag Platform</div>
-                    <div class="portfolio-description">Interaktive Präsentationsplattform</div>
-                    <div class="portfolio-link">https://ki-vortrag-2-4-26.lovable.app/</div>
+                    <h4>KI-Vortrag Platform</h4>
+                    <div class="project-type">Interaktive Präsentationsplattform</div>
+                    <a href="https://ki-vortrag-2-4-26.lovable.app/" target="_blank" class="portfolio-link">🔗 Live Demo ansehen</a>
                 </div>
 
                 <div class="portfolio-item">
-                    <div class="portfolio-title">Bolt.new Web-Anwendung</div>
-                    <div class="portfolio-description">Moderne Web-App entwickelt mit Bolt.new</div>
-                    <div class="portfolio-link">https://effulgent-florentine-0edd1f.netlify.app/</div>
+                    <h4>Bolt.new Web-Anwendung</h4>
+                    <div class="project-type">Moderne Web-App entwickelt mit Bolt.new</div>
+                    <a href="https://effulgent-florentine-0edd1f.netlify.app/" target="_blank" class="portfolio-link">🔗 Live Demo ansehen</a>
                 </div>
 
                 <div class="portfolio-item">
-                    <div class="portfolio-title">Netlify Web-Project</div>
-                    <div class="portfolio-description">Full-Stack Webanwendung mit modernen Technologien</div>
-                    <div class="portfolio-link">https://monumental-puffpuff-2d2231.netlify.app/</div>
+                    <h4>Netlify Web-Project</h4>
+                    <div class="project-type">Full-Stack Webanwendung mit modernen Technologien</div>
+                    <a href="https://monumental-puffpuff-2d2231.netlify.app/" target="_blank" class="portfolio-link">🔗 Live Demo ansehen</a>
                 </div>
 
                 <div class="portfolio-item">
-                    <div class="portfolio-title">GitHub Projects</div>
-                    <div class="portfolio-description">Aktive Open-Source Beiträge und Entwicklungsprojekte</div>
+                    <h4>GitHub Projects</h4>
+                    <div class="project-type">Aktive Open-Source Beiträge und Entwicklungsprojekte</div>
                 </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">💡 Kenntnisse & Fähigkeiten</h2>
+                
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>🖥️ IT-Kenntnisse</h4>
+                        <ul>
+                            <li><strong>Systemadministration:</strong> IT-Service Management, Systemüberwachung und -wartung</li>
+                            <li><strong>Monitoring & Troubleshooting:</strong> Problemanalyse, Performance-Optimierung</li>
+                            <li><strong>KI-Tools:</strong> ChatGPT, Claude, GitHub Copilot für Entwicklung und Automation</li>
+                            <li><strong>Entwicklungstools:</strong> Vercel, Lovable, Bolt.new (Low-Code/No-Code Plattformen)</li>
+                            <li><strong>Version Control:</strong> Git, GitHub (aktive Open-Source Projekte)</li>
+                            <li><strong>Web-Technologien:</strong> Moderne Frontend/Backend-Entwicklung</li>
+                            <li><strong>ITIL-Grundlagen:</strong> Best Practices für IT-Service Management</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>🎯 Berufliche Kompetenzen</h4>
+                        <ul>
+                            <li><strong>Führungserfahrung:</strong> Personalverantwortung und Teamleitung</li>
+                            <li><strong>Qualitätsmanagement:</strong> HACCP und Lebensmittelsicherheit</li>
+                            <li><strong>Organisationstalent:</strong> Effizienter Workflow und Zeitmanagement</li>
+                            <li><strong>Kundenorientierung:</strong> Service und Betreuung</li>
+                            <li><strong>Weiterbildung:</strong> Berufsbildnerkurs, diätische Ernährung</li>
+                            <li><strong>Stressresistenz:</strong> Belastbarkeit in schnellem Arbeitsumfeld</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>🌍 Sprachkenntnisse</h4>
+                        <ul>
+                            <li><strong>Deutsch:</strong> Muttersprache</li>
+                            <li><strong>Englisch:</strong> Grundkenntnisse</li>
+                            <li><strong>Französisch:</strong> Grundkenntnisse</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>✨ Persönliche Stärken</h4>
+                        <ul>
+                            <li>Zuverlässigkeit und Pünktlichkeit</li>
+                            <li>Lernbereitschaft und Anpassungsfähigkeit</li>
+                            <li>Problemlösungsdenken</li>
+                            <li>Kommunikationsfähigkeit</li>
+                            <li>Selbstständiges Arbeiten</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">🌟 Besondere Qualifikationen</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <ul>
+                            <li><strong>Frische IT-Ausbildung:</strong> Erfolgreich abgeschlossene Weiterbildung in IT-Services</li>
+                            <li><strong>GitHub-Portfolio:</strong> Aktive Projekte und Open-Source Beiträge</li>
+                            <li><strong>KI-Integration:</strong> Praktische Erfahrung mit modernen KI-Entwicklungstools</li>
+                            <li><strong>Low-Code/No-Code Expertise:</strong> Vercel, Lovable, Bolt.new für schnelle Prototyping</li>
+                            <li><strong>Langjährige Führungserfahrung:</strong> Über 15 Jahre Berufserfahrung mit Personalverantwortung</li>
+                            <li><strong>Qualitätsbewusstsein:</strong> Erfahrung in gehobener Gastronomie (Michelin-Stern Restaurant)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="attachments">
+                <h4>📋 Anlagen</h4>
+                <ul>
+                    <li>Zeugnisse und Arbeitszeugnisse</li>
+                    <li>IT-Zertifikat: "IT-Services betreiben, warten und überwachen"</li>
+                    <li>Diplom Mittelschule</li>
+                    <li>Koch EFZ Lehrabschluss</li>
+                    <li>Portfolio-Links zu aktuellen Projekten</li>
+                </ul>
             </div>
         </div>
 
-        <div class="right-column">
-            <div class="section">
-                <h2 class="section-title">COMPUTER SKILLS</h2>
-                
-                <div class="skills-text">
-                    Sehr gute Kenntnisse der gängigsten Anwenderprogramme, Microsoft Office, Internet (Anwendungen, Installationen und Wartung)
-                </div>
-                
-                <div class="skills-text">
-                    Sehr gute Kenntnisse in IT-Service Management und Systemüberwachung
-                </div>
-                
-                <div class="skills-text">
-                    Gute Kenntnisse von KI-Tools (ChatGPT, Claude, GitHub Copilot)
-                </div>
-                
-                <div class="skills-text">
-                    Gute Kenntnisse von Low-Code/No-Code Plattformen (Vercel, Lovable, Bolt.new)
-                </div>
-                
-                <div class="skills-text">
-                    Gute Kenntnisse von Betriebssystemen (Windows, Linux Grundlagen)
-                </div>
-                
-                <div class="skills-text">
-                    Gute Kenntnisse von Netzwerk- und Hardware-Installation
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">LANGUAGES</h2>
-                
-                <div class="language-item">
-                    <div class="language-name">Deutsch</div>
-                    <div class="language-level">Muttersprache</div>
-                </div>
-                
-                <div class="language-item">
-                    <div class="language-name">Englisch</div>
-                    <div class="language-level">Grundkenntnisse</div>
-                </div>
-                
-                <div class="language-item">
-                    <div class="language-name">Französisch</div>
-                    <div class="language-level">Grundkenntnisse</div>
-                </div>
-            </div>
-
-            <div class="section">
-                <h2 class="section-title">COURSES AND SEMINARS</h2>
-                
-                <div class="courses-item">
-                    <div class="course-title">IT-SERVICES MANAGEMENT, KLUBSCHULE MIGROS PRO</div>
-                    <div class="course-year">2025</div>
-                </div>
-                
-                <div class="courses-item">
-                    <div class="course-title">KI-TOOLS WEITERBILDUNG, ONLINE-KURSE</div>
-                    <div class="course-year">2024-2025</div>
-                </div>
-                
-                <div class="courses-item">
-                    <div class="course-title">BERUFSBILDNERKURS, VERSCHIEDENE ANBIETER</div>
-                    <div class="course-year">2018</div>
-                </div>
-                
-                <div class="courses-item">
-                    <div class="course-title">HACCP UND LEBENSMITTELSICHERHEIT</div>
-                    <div class="course-year">2015-2020</div>
-                </div>
-            </div>
-
-            <div class="footer-section">
-                <div class="footer-title">LEISURE ACTIVITIES</div>
-                <div class="footer-content">
-                    Wandern<br>
-                    Technologie und Innovation<br>
-                    Open-Source Projekte
-                </div>
-            </div>
-
-            <div class="footer-section">
-                <div class="footer-title">REFERENCES</div>
-                <div class="footer-content">auf Anfrage</div>
-            </div>
-
-            <div class="footer-section">
-                <div class="footer-title">NOTICE PERIOD</div>
-                <div class="footer-content">2 Monate</div>
-            </div>
+        <div class="footer">
+            <h3>Rheinfelden, 15. Juli 2025</h3>
+            <p style="margin-top: 15px; opacity: 0.8;">Alle Unterlagen werden auf Wunsch gerne zur Verfügung gestellt.</p>
         </div>
     </div>
 </body>
