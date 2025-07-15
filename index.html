@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lebenslauf - Alfredo Wagner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 210mm;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #e74c3c;
+        }
+        
+        .job {
+            background: #f8f9fa;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .job:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .job-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .company {
+            color: #7f8c8d;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        .period {
+            background: #3498db;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        
+        .job-description {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .job-description li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .job-description li::before {
+            content: '▶';
+            color: #3498db;
+            position: absolute;
+            left: 0;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .skill-category h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        
+        .skill-category ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .skill-category li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .skill-category li::before {
+            content: '✓';
+            color: #27ae60;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .portfolio-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .portfolio-item h4 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+        }
+        
+        .portfolio-item .project-type {
+            opacity: 0.8;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .portfolio-link {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+        
+        .portfolio-link:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        .education-item {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .education-date {
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 5px;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .attachments {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .attachments h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .attachments ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .attachments li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .attachments li::before {
+            content: '📄';
+            position: absolute;
+            left: 0;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .job:hover {
+                transform: none;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .job-header {
+                flex-direction: column;
+            }
+            
+            .period {
+                margin-top: 10px;
+                align-self: flex-start;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1>Alfredo Wagner</h1>
+                <div class="subtitle">Systemadministrator & IT-Service Spezialist</div>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📍</span>
+                        <span>Haldenweg 42, 4310 Rheinfelden</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>📞</span>
+                        <span>+41 79 893 3842</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>✉️</span>
+                        <span>don_alf@web.de</span>
+                    </div>
+                    <div class="contact-item">
+                        <span>🎂</span>
+                        <span>22.12.1982, Mosnang SG</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="highlight">
+                <h3>🎯 Berufsziel</h3>
+                <p>Systemadministrator im IT-Bereich mit Fokus auf IT-Services, Systembetreuung und -überwachung</p>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">💼 Berufserfahrung</h2>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Koch</div>
+                            <div class="company">Reha Rheinfelden</div>
+                            <div class="company">Salinenstrasse 98, 4310 Rheinfelden</div>
+                        </div>
+                        <div class="period">01/2021 – heute</div>
+                    </div>
+                    <ul class="job-description">
+                        <li>Zubereitung von Mahlzeiten für Patienten und Personal</li>
+                        <li>Einhaltung von Hygienevorschriften und Diätplänen</li>
+                        <li>Teamarbeit in der Großküche</li>
+                        <li>Verantwortung für Qualität und Termintreue</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Chef de Partie / Tournant</div>
+                            <div class="company">Parkhotel am Rhein, Rheinfelden</div>
+                            <div class="company">Bei Herr Tobler Ernst</div>
+                        </div>
+                        <div class="period">10/2020 – 12/2020</div>
+                    </div>
+                    <ul class="job-description">
+                        <li>Leitung verschiedener Küchenbereiche</li>
+                        <li>Koordination von Arbeitsabläufen</li>
+                        <li>Qualitätskontrolle und Teamführung</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Koch / Küchen Verantwortlicher</div>
+                            <div class="company">Zaraz Partyservice & Catering, Rheinfelden</div>
+                            <div class="company">Bei Herr Abram Araz</div>
+                        </div>
+                        <div class="period">06/2015 – 08/2020</div>
+                    </div>
+                    <ul class="job-description">
+                        <li>Küchenleitung und Personalführung</li>
+                        <li>Event-Catering und Partyservice</li>
+                        <li>Menüplanung und Kostenkontrolle</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Koch / Bäcker / Verkauf</div>
+                            <div class="company">Manor AG, Basel St.Jakob</div>
+                        </div>
+                        <div class="period">09/2013 – 05/2015</div>
+                    </div>
+                    <ul class="job-description">
+                        <li>Vielseitige Tätigkeiten in Küche und Verkauf</li>
+                        <li>Kundenbetreuung und Verkaufstätigkeit</li>
+                        <li>Backwaren-Herstellung</li>
+                    </ul>
+                </div>
+
+                <div class="job">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Chef de Partie / Tournant</div>
+                            <div class="company">Park-Hotel am Rhein / Parkresort Rheinfelden</div>
+                            <div class="company">Bei Herr Tobler Ernst</div>
+                        </div>
+                        <div class="period">02/2009 – 08/2013</div>
+                    </div>
+                    <ul class="job-description">
+                        <li>Leitung verschiedener Küchenbereiche</li>
+                        <li>Qualitätsmanagement und Teamarbeit</li>
+                        <li>Gehobene Gastronomie</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">🎓 Ausbildung & Weiterbildung</h2>
+                
+                <div class="education-item">
+                    <div class="education-date">14.05.2025</div>
+                    <h4>IT-Services betreiben, warten und überwachen</h4>
+                    <div class="company">Klubschule Migros Pro (erfolgreich abgeschlossen)</div>
+                    <ul class="job-description">
+                        <li>Systemadministration und IT-Service Management</li>
+                        <li>Überwachung und Wartung von IT-Infrastrukturen</li>
+                        <li>Troubleshooting und Problemlösung</li>
+                        <li>Network Monitoring und Performance-Optimierung</li>
+                        <li>ITIL-Grundlagen und Best Practices</li>
+                    </ul>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-date">2024/2025</div>
+                    <h4>Künstliche Intelligenz & Moderne Entwicklungstools</h4>
+                    <div class="company">Online-Kurse und Selbststudium</div>
+                    <ul class="job-description">
+                        <li>KI-Tools: ChatGPT, Claude, GitHub Copilot</li>
+                        <li>Low-Code/No-Code Entwicklung: Vercel, Lovable, Bolt.new</li>
+                        <li>Version Control und Collaboration: GitHub (aktive Projekte)</li>
+                        <li>Moderne Web-Entwicklung und Automatisierung</li>
+                    </ul>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-date">08/2004 – 08/2006</div>
+                    <h4>Lehre als Koch EFZ</h4>
+                    <div class="company">
+                        <strong>06/2003 – 07/2004:</strong> Gasthaus Pöstli, Magden (Herr Rossal Siegfried - 1 Michelin Stern / 17 Gault Millau)<br>
+                        <strong>08/2004 – 08/2006:</strong> Hotel Engel, Frick (Herr Hildebrand und Herr Hiltbrunner)
+                    </div>
+                    <ul class="job-description">
+                        <li>Eidgenössisches Fähigkeitszeugnis als Koch (abgeschlossen 08/2006)</li>
+                        <li>Fundierte Ausbildung in gehobener Gastronomie</li>
+                        <li>Praktische Erfahrung in allen Küchenbereichen</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">🚀 Portfolio & Projekte</h2>
+                
+                <div class="portfolio-item">
+                    <h4>FitWell Connect Hub</h4>
+                    <div class="project-type">Web-Anwendung für Fitness und Wellness</div>
+                    <ul class="job-description">
+                        <li>Moderne Web-App mit benutzerfreundlichem Interface</li>
+                        <li>Entwickelt mit Low-Code Technologien (Lovable)</li>
+                        <li>Fokus auf User Experience und responsive Design</li>
+                    </ul>
+                    <a href="https://fitwell-connect-hub.lovable.app/" target="_blank" class="portfolio-link">🔗 Live Demo ansehen</a>
+                </div>
+
+                <div class="portfolio-item">
+                    <h4>KI-Vortrag Präsentation</h4>
+                    <div class="project-type">Interaktive Präsentationsplattform</div>
+                    <ul class="job-description">
+                        <li>Innovative Präsentationstechnologie</li>
+                        <li>KI-gestützte Inhalte und Interaktivität</li>
+                        <li>Demonstration moderner Entwicklungsansätze</li>
+                    </ul>
+                    <a href="https://ki-vortrag-2-4-26.lovable.app/" target="_blank" class="portfolio-link">🔗 Live Demo ansehen</a>
+                </div>
+
+                <div class="portfolio-item">
+                    <h4>GitHub Open-Source Beiträge</h4>
+                    <div class="project-type">Aktive Teilnahme in der Entwicklergemeinschaft</div>
+                    <ul class="job-description">
+                        <li>Regelmäßige Code-Beiträge und Projektentwicklung</li>
+                        <li>Zusammenarbeit in Open-Source Projekten</li>
+                        <li>Kontinuierliche Weiterentwicklung der Programmierfähigkeiten</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">💡 Kenntnisse & Fähigkeiten</h2>
+                
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>🖥️ IT-Kenntnisse</h4>
+                        <ul>
+                            <li><strong>Systemadministration:</strong> IT-Service Management, Systemüberwachung und -wartung</li>
+                            <li><strong>Monitoring & Troubleshooting:</strong> Problemanalyse, Performance-Optimierung</li>
+                            <li><strong>KI-Tools:</strong> ChatGPT, Claude, GitHub Copilot für Entwicklung und Automation</li>
+                            <li><strong>Entwicklungstools:</strong> Vercel, Lovable, Bolt.new (Low-Code/No-Code Plattformen)</li>
+                            <li><strong>Version Control:</strong> Git, GitHub (aktive Open-Source Projekte)</li>
+                            <li><strong>Web-Technologien:</strong> Moderne Frontend/Backend-Entwicklung</li>
+                            <li><strong>ITIL-Grundlagen:</strong> Best Practices für IT-Service Management</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>🎯 Berufliche Kompetenzen</h4>
+                        <ul>
+                            <li><strong>Führungserfahrung:</strong> Personalverantwortung und Teamleitung</li>
+                            <li><strong>Qualitätsmanagement:</strong> HACCP und Lebensmittelsicherheit</li>
+                            <li><strong>Organisationstalent:</strong> Effizienter Workflow und Zeitmanagement</li>
+                            <li><strong>Kundenorientierung:</strong> Service und Betreuung</li>
+                            <li><strong>Weiterbildung:</strong> Berufsbildnerkurs, diätische Ernährung</li>
+                            <li><strong>Stressresistenz:</strong> Belastbarkeit in schnellem Arbeitsumfeld</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>🌍 Sprachkenntnisse</h4>
+                        <ul>
+                            <li><strong>Deutsch:</strong> Muttersprache</li>
+                            <li><strong>Englisch:</strong> Grundkenntnisse</li>
+                            <li><strong>Französisch:</strong> Grundkenntnisse</li>
+                        </ul>
+                    </div>
+
+                    <div class="skill-category">
+                        <h4>✨ Persönliche Stärken</h4>
+                        <ul>
+                            <li>Zuverlässigkeit und Pünktlichkeit</li>
+                            <li>Lernbereitschaft und Anpassungsfähigkeit</li>
+                            <li>Problemlösungsdenken</li>
+                            <li>Kommunikationsfähigkeit</li>
+                            <li>Selbstständiges Arbeiten</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">🌟 Besondere Qualifikationen</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <ul>
+                            <li><strong>Frische IT-Ausbildung:</strong> Erfolgreich abgeschlossene Weiterbildung in IT-Services</li>
+                            <li><strong>GitHub-Portfolio:</strong> Aktive Projekte und Open-Source Beiträge</li>
+                            <li><strong>KI-Integration:</strong> Praktische Erfahrung mit modernen KI-Entwicklungstools</li>
+                            <li><strong>Low-Code/No-Code Expertise:</strong> Vercel, Lovable, Bolt.new für schnelle Prototyping</li>
+                            <li><strong>Langjährige Führungserfahrung:</strong> Über 15 Jahre Berufserfahrung mit Personalverantwortung</li>
+                            <li><strong>Qualitätsbewusstsein:</strong> Erfahrung in gehobener Gastronomie (Michelin-Stern Restaurant)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="attachments">
+                <h4>📋 Anlagen</h4>
+                <ul>
+                    <li>Zeugnisse und Arbeitszeugnisse</li>
+                    <li>IT-Zertifikat: "IT-Services betreiben, warten und überwachen"</li>
+                    <li>Diplom Mittelschule</li>
+                    <li>Koch EFZ Lehrabschluss</li>
+                    <li>Portfolio-Links zu aktuellen Projekten</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <h3>Rheinfelden, 15. Juli 2025</h3>
+            <p style="margin-top: 15px; opacity: 0.8;">Alle Unterlagen werden auf Wunsch gerne zur Verfügung gestellt.</p>
+        </div>
+    </div>
+</body>
+</html>
